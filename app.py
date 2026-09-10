@@ -7,13 +7,15 @@ generated from that profile, and confirm the offer they want.
 
 from flask import Flask, render_template
 
+import data
+
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    """Render the club introduction page."""
-    return render_template("index.html")
+    """Render the club introduction page with honours and club facts."""
+    return render_template("index.html", honours=data.HONOURS, facts=data.CLUB_FACTS)
 
 
 if __name__ == "__main__":

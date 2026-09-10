@@ -28,4 +28,38 @@
         &mdash; a tradition that has been part of the club since the 1960s.
     </p>
 </section>
+<section class="panel">
+    <h2>Major Honours</h2>
+    <p class="panel-lead">Every trophy below is rendered from a Python list of dictionaries.</p>
+    <table class="honours-table">
+        <thead>
+            <tr>
+                <th scope="col">Competition</th>
+                <th scope="col">Won</th>
+                <th scope="col">Most Recent</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for honour in honours %}
+            <tr>
+                <td>{{ honour.competition }}</td>
+                <td class="count-cell">{{ honour.count }}</td>
+                <td>{{ honour.most_recent }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+<section class="panel">
+    <h2>Club Facts</h2>
+    <div class="fact-grid">
+        {% for fact in facts %}
+        <article class="fact-card">
+            <h3>{{ fact.label }}</h3>
+            <p>{{ fact.value }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
