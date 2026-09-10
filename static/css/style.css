@@ -204,3 +204,68 @@ a {
         padding: 24px 20px;
     }
 }
+
+/* honours table */
+
+.panel-lead {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.honours-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.honours-table th,
+.honours-table td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+.honours-table thead th {
+    background-color: var(--ink);
+    color: #ffffff;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.honours-table tbody tr:hover {
+    background-color: #faf3f4;
+}
+
+.count-cell {
+    font-weight: 800;
+    color: var(--red);
+}
+
+/* fact grid */
+
+.fact-grid {
+    /* auto-fit with minmax gives a responsive grid that reflows by itself,
+       no media query needed. */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.fact-card {
+    background-color: var(--paper);
+    border-left: 4px solid var(--red);
+    border-radius: 6px;
+    padding: 16px 18px;
+}
+
+.fact-card h3 {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+.fact-card p {
+    font-weight: 600;
+}
