@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Liverpool FC Talent Pathway{% endblock %}</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('home') }}">
+            <span class="brand-mark">LFC</span>
+            <span class="brand-text">Talent Pathway</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="{{ url_for('home') }}">Home</a>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-anthem">You'll Never Walk Alone</p>
+        <p class="footer-note">
+            Student project built with Flask for the UCD Professional Academy Python
+            assignment. Not affiliated with Liverpool Football Club.
+        </p>
+    </footer>
+</body>
+</html>
