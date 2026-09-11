@@ -44,3 +44,8 @@ SQUAD: list[dict[str, str | int]] = [
 # Derived from SQUAD with a dictionary comprehension so the two can never drift
 # apart - add a player above and their number is marked taken automatically.
 TAKEN_NUMBERS: dict[int, str] = {player["number"]: player["name"] for player in SQUAD}
+
+# Form option lists live here so the template renders the choices from data
+# and the validation in step 7 can check submissions against the same source.
+POSITIONS: list[str] = ["Goalkeeper", "Defender", "Midfielder", "Forward"]
+PREFERRED_FEET: list[str] = ["Left", "Right", "Both"]

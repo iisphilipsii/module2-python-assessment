@@ -27,6 +27,15 @@ def squad():
         shirt_range=range(1, 31),
     )
 
+@app.route("/trials")
+def trials():
+    """Render the player profile form used to generate contract offers."""
+    return render_template(
+        "trials.html",
+        positions=data.POSITIONS,
+        feet=data.PREFERRED_FEET,
+    )
+
 if __name__ == "__main__":
     # debug=True restarts the server automatically when a file changes.
     app.run(debug=True)

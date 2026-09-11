@@ -141,6 +141,7 @@ a {
 .hero-lead {
     max-width: 62ch;
     font-size: 1.05rem;
+    margin-bottom: 28px;
 }
 
 /* panels */
@@ -379,4 +380,117 @@ a {
     background-color: #eaf5ee;
     border-color: #c2e0cd;
     color: #1c6b3a;
+}
+
+/* buttons */
+
+.btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--red);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--red-dark);
+}
+
+/* Gold reads better than red against the red hero gradient. */
+.hero .btn-primary {
+    background-color: var(--gold);
+    color: var(--ink);
+}
+
+.hero .btn-primary:hover {
+    background-color: #ffffff;
+}
+
+/* form */
+
+.trial-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 640px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label,
+.field legend {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: var(--ink);
+}
+
+.field input:focus,
+.field select:focus {
+    outline: 2px solid var(--red);
+    outline-offset: 1px;
+    border-color: var(--red);
+}
+
+/* Two fields side by side on a wide screen, stacked on a narrow one. */
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 18px;
+}
+
+fieldset.field {
+    border: none;
+    padding: 0;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 4px;
+}
+
+/* Reset the uppercase label styling for the radio captions. */
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+}
+
+.trial-form .btn {
+    align-self: flex-start;
 }
