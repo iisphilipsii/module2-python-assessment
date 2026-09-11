@@ -17,6 +17,15 @@ def home():
     """Render the club introduction page with honours and club facts."""
     return render_template("index.html", honours=data.HONOURS, facts=data.CLUB_FACTS)
 
+@app.route("/squad")
+def squad():
+    """Render the first-team squad and which shirt numbers are still available."""
+    return render_template(
+        "squad.html",
+        squad=data.SQUAD,
+        taken_numbers=data.TAKEN_NUMBERS,
+        shirt_range=range(1, 31),
+    )
 
 if __name__ == "__main__":
     # debug=True restarts the server automatically when a file changes.

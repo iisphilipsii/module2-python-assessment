@@ -269,3 +269,114 @@ a {
 .fact-card p {
     font-weight: 600;
 }
+
+/* page head */
+
+.page-head {
+    margin-bottom: 28px;
+}
+
+.page-head h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--red);
+    margin-bottom: 12px;
+}
+
+.page-head .eyebrow {
+    color: var(--muted);
+}
+
+.page-lead {
+    max-width: 62ch;
+    color: var(--muted);
+}
+
+/* squad cards */
+
+.squad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+}
+
+.player-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.player-number {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: 1.4rem;
+    color: #ffffff;
+    background-color: var(--red);
+    border-radius: 8px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Stops the badge shrinking when a long player name pushes against it. */
+    flex-shrink: 0;
+}
+
+.player-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-name {
+    font-weight: 600;
+}
+
+.player-position {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* shirt grid */
+
+.shirt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    gap: 10px;
+    list-style: none;
+}
+
+.shirt {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 10px 8px;
+    text-align: center;
+}
+
+.shirt-number {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: 1.3rem;
+    display: block;
+}
+
+.shirt-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.shirt-taken {
+    background-color: #f8eaec;
+    border-color: #e6c3ca;
+    color: var(--red-dark);
+}
+
+.shirt-free {
+    background-color: #eaf5ee;
+    border-color: #c2e0cd;
+    color: #1c6b3a;
+}
