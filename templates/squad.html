@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Liverpool FC Talent Pathway | Squad{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">First Team</p>
+    <h1>The Squad</h1>
+    <p class="page-lead">
+        The players currently holding a first-team shirt number. Any number not listed
+        below is still available to a new signing.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>Current Squad</h2>
+    <div class="squad-grid">
+        {% for player in squad %}
+        <article class="player-card">
+            <span class="player-number">{{ player.number }}</span>
+            <span class="player-details">
+                <span class="player-name">{{ player.name }}</span>
+                <span class="player-position">{{ player.position }}</span>
+            </span>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Shirt Number Availability</h2>
+    <p class="panel-lead">Numbers 1 to 30. Taken numbers show the player holding them.</p>
+    <ul class="shirt-grid">
+        {% for number in shirt_range %}
+            {% if number in taken_numbers %}
+            <li class="shirt shirt-taken">
+                <span class="shirt-number">{{ number }}</span>
+                <span class="shirt-label">{{ taken_numbers[number] }}</span>
+            </li>
+            {% else %}
+            <li class="shirt shirt-free">
+                <span class="shirt-number">{{ number }}</span>
+                <span class="shirt-label">Available</span>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

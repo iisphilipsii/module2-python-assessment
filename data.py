@@ -26,3 +26,21 @@ CLUB_FACTS: list[dict[str, str]] = [
     {"label": "Anthem", "value": "You'll Never Walk Alone"},
     {"label": "Club Motto", "value": "This Is Anfield"},
 ]
+
+# Illustrative first-team squad data for the assignment - a representative
+# selection of well-known squad numbers rather than a live, current squad.
+SQUAD: list[dict[str, str | int]] = [
+    {"number": 1, "name": "Alisson Becker", "position": "Goalkeeper"},
+    {"number": 4, "name": "Virgil van Dijk", "position": "Defender"},
+    {"number": 5, "name": "Jeremy Jacquet", "position": "Defender"},
+    {"number": 8, "name": "Dominik Szoboszlai", "position": "Midfielder"},
+    {"number": 10, "name": "Alexis Mac Allister", "position": "Midfielder"},
+    {"number": 29, "name": "Bradley Barcola", "position": "Forward"},
+    {"number": 7, "name": "Florian Wirtz", "position": "Midfielder"},
+    {"number": 33, "name": "Ronald Araujo", "position": "Defender"},
+    {"number": 38, "name": "Ryan Gravenberch", "position": "Midfielder"},
+]
+
+# Derived from SQUAD with a dictionary comprehension so the two can never drift
+# apart - add a player above and their number is marked taken automatically.
+TAKEN_NUMBERS: dict[int, str] = {player["number"]: player["name"] for player in SQUAD}
