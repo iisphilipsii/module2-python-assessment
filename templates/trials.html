@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Liverpool FC Talent Pathway | Trials{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">Step 1 of 3</p>
+    <h1>Player Profile</h1>
+    <p class="page-lead">
+        Tell the recruitment team about yourself. Your answers are used to calculate an
+        overall rating, which determines the contract offers available to you.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>Your Details</h2>
+    <!-- novalidate switches off the browser's own checks so that the
+         server-side validation is the thing doing the work. -->
+    <form class="trial-form" method="post" action="{{ url_for('trials') }}" novalidate>
+        <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" maxlength="60" required>
+        </div>
+
+        <div class="field-row">
+            <div class="field">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="16" max="40" required>
+            </div>
+
+            <div class="field">
+                <label for="position">Position</label>
+                <select id="position" name="position" required>
+                    <option value="">Choose a position</option>
+                    {% for position in positions %}
+                    <option value="{{ position }}">{{ position }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <fieldset class="field">
+            <legend>Preferred foot</legend>
+            <div class="radio-group">
+                {% for foot in feet %}
+                <label class="radio">
+                    <input type="radio" name="preferred_foot" value="{{ foot }}">
+                    {{ foot }}
+                </label>
+                {% endfor %}
+            </div>
+        </fieldset>
+
+        <div class="field-row">
+            <div class="field">
+                <label for="shirt_number">Favourite shirt number (1-30)</label>
+                <input type="number" id="shirt_number" name="shirt_number" min="1" max="30" required>
+            </div>
+
+            <div class="field">
+                <label for="training_days">Training days per week</label>
+                <input type="number" id="training_days" name="training_days" min="1" max="7" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="current_club">Current club (optional)</label>
+            <input type="text" id="current_club" name="current_club" maxlength="60">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit Profile</button>
+    </form>
+</section>
+{% endblock %}
