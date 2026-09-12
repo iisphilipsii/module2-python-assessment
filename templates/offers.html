@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Liverpool FC Talent Pathway | Your Offers{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">Step 2 of 3</p>
+    <h1>Profile Received</h1>
+    <p class="page-lead">
+        Thanks {{ profile.name }} &mdash; your details are with the recruitment team.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>Your Submitted Profile</h2>
+    <dl class="profile-list">
+        <div><dt>Name</dt><dd>{{ profile.name }}</dd></div>
+        <div><dt>Age</dt><dd>{{ profile.age }}</dd></div>
+        <div><dt>Position</dt><dd>{{ profile.position }}</dd></div>
+        <div><dt>Preferred foot</dt><dd>{{ profile.preferred_foot }}</dd></div>
+        <div><dt>Shirt number</dt><dd>{{ profile.shirt_number }}</dd></div>
+        <div><dt>Training days</dt><dd>{{ profile.training_days }} per week</dd></div>
+        <div><dt>Current club</dt><dd>{{ profile.current_club }}</dd></div>
+    </dl>
+    <a class="btn btn-primary" href="{{ url_for('trials') }}">Edit Profile</a>
+</section>
+{% endblock %}
