@@ -44,6 +44,7 @@ immediate.
 
 ## Project structure
 
+```
 ucd-pa-python/
 ├── app.py              Flask application and route definitions
 ├── data.py             Club, squad and form option data
@@ -62,6 +63,7 @@ ucd-pa-python/
 └── static/
     └── css/
         └── style.css   Stylesheet
+```
 
 ## Running it locally
 
@@ -72,10 +74,11 @@ python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
+```
 
 Then open http://127.0.0.1:5000
 
-Deploying to Render
+## Deploying to Render
 
 1. Push the project to a GitHub repository.
 2. On https://render.com, choose New + then Web Service and connect
@@ -90,7 +93,7 @@ Deploying to Render
    the source code. Without it the app falls back to a development-only value.
 5. Deploy. Render rebuilds automatically on every push to main.
 
-Notes
+## Notes
 
 This is a student project and is not affiliated with Liverpool Football Club.
 Squad data is illustrative. Ratings, valuations and contract terms are invented
