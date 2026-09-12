@@ -49,3 +49,7 @@ TAKEN_NUMBERS: dict[int, str] = {player["number"]: player["name"] for player in 
 # and the validation in step 7 can check submissions against the same source.
 POSITIONS: list[str] = ["Goalkeeper", "Defender", "Midfielder", "Forward"]
 PREFERRED_FEET: list[str] = ["Left", "Right", "Both"]
+
+def available_numbers(limit: int = 30) -> list[int]:
+    """Return the shirt numbers from 1 to limit that no squad member holds."""
+    return [number for number in range(1, limit + 1) if number not in TAKEN_NUMBERS]
