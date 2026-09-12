@@ -54,6 +54,12 @@
         <p class="offer-summary">{{ offer.summary }}</p>
         <p class="offer-detail">{{ offer.detail }}</p>
         <p class="offer-terms">{{ offer.terms }}</p>
+        <form method="post" action="{{ url_for('contract') }}">
+            <!-- The chosen offer travels in a hidden field; the server checks it
+                 against the offers this player actually qualifies for. -->
+            <input type="hidden" name="offer_key" value="{{ offer.key }}">
+            <button class="btn btn-primary btn-small" type="submit">Choose This Offer</button>
+        </form>
     </article>
     {% endfor %}
 

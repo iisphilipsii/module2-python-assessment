@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Liverpool FC Talent Pathway | Your Contract{% endblock %}
+
+{% block content %}
+{% if confirmed %}
+<section class="hero hero-success">
+    <p class="eyebrow">Step 3 of 3</p>
+    <h1>Welcome To Liverpool</h1>
+    <p class="hero-lead">
+        Congratulations {{ profile.name }} &mdash; your move is complete and the paperwork
+        is signed. You'll never walk alone.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>Agreed Terms</h2>
+    <div class="contract-summary">
+        <p class="contract-title">{{ offer.title }}</p>
+        <p class="contract-terms">{{ offer.terms }}</p>
+        <p class="contract-detail">{{ offer.detail }}</p>
+    </div>
+    <dl class="profile-list">
+        <div><dt>Player</dt><dd>{{ profile.name }}</dd></div>
+        <div><dt>Position</dt><dd>{{ profile.position }}</dd></div>
+        <div><dt>Shirt number</dt><dd>{{ profile.shirt_number }}</dd></div>
+        <div><dt>Overall rating</dt><dd>{{ rating }}</dd></div>
+    </dl>
+    <a class="btn btn-secondary" href="{{ url_for('home') }}">Back To The Club</a>
+</section>
+{% else %}
+<section class="page-head">
+    <p class="eyebrow">Step 3 of 3</p>
+    <h1>Confirm Your Decision</h1>
+    <p class="page-lead">
+        Read the terms below carefully. Nothing is final until you confirm.
+    </p>
+</section>
+
+<section class="panel">
+    <h2>{{ offer.title }}</h2>
+    <div class="contract-summary">
+        <p class="contract-title">{{ offer.summary }}</p>
+        <p class="contract-terms">{{ offer.terms }}</p>
+        <p class="contract-detail">{{ offer.detail }}</p>
+    </div>
+
+    <p class="contract-question">
+        {{ profile.name }}, do you want to proceed with this offer?
+    </p>
+
+    <div class="contract-actions">
+        <form method="post" action="{{ url_for('confirm_contract') }}">
+            <input type="hidden" name="offer_key" value="{{ offer.key }}">
+            <button class="btn btn-primary" type="submit">Yes, Sign The Contract</button>
+        </form>
+        <a class="btn btn-secondary" href="{{ url_for('offers') }}">Look At Other Offers</a>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
