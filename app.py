@@ -81,6 +81,56 @@ def offers():
         offers=ratings.build_offers(profile, rating),
     )
 
+@app.route("/contract", methods=["POST"])
+def contract():
+    """Show the offer the player selected so they can confirm or go back."""
+    profile = session.get("profile")
+    if profile is None:
+        return redirect(url_for("trials"))
+
+    rating = ratings.calculate_rating(profile)
+    chosen_key = request.form.get("offer_key", "")
+
+    # Never trust the submitted key. Rebuilding the offer list and looking the
+    # key up in it means a player cannot post their way into an offer their
+    # rating has not unlocked.
+    available = ratings.build_offers(profile, rating)
+    chosen = next((offer for offer in available if offer["key"] == chosen_key), None)
+    if chosen is None:
+        return redirect(url_for("offers"))
+
+    return render_template(
+        "contract.html",
+        profile=profile,
+        rating=rating,
+        offer=chosen,
+        confirmed=False,
+    )
+
+
+@app.route("/contract/confirm", methods=["POST"])
+def confirm_contract():
+    """Confirm the selected offer and congratulate the player."""
+    profile = session.get("profile")
+    if profile is None:
+        return redirect(url_for("trials"))
+
+    rating = ratings.calculate_rating(profile)
+    chosen_key = request.form.get("offer_key", "")
+
+    available = ratings.build_offers(profile, rating)
+    chosen = next((offer for offer in available if offer["key"] == chosen_key), None)
+    if chosen is None:
+        return redirect(url_for("offers"))
+
+    return render_template(
+        "contract.html",
+        profile=profile,
+        rating=rating,
+        offer=chosen,
+        confirmed=True,
+    )
+
 if __name__ == "__main__":
     # debug=True restarts the server automatically when a file changes.
     app.run(debug=True)

@@ -601,7 +601,7 @@ fieldset.field {
     color: var(--muted);
 }
 
-/* ards */
+/* offer cards */
 
 .offer-card {
     border: 1px solid var(--line);
@@ -676,4 +676,58 @@ fieldset.field {
 
 .btn-secondary:hover {
     background-color: var(--ink-soft, #2c333d);
+}
+
+/* contract page */
+
+.hero-success {
+    background: linear-gradient(135deg, #1c6b3a 0%, #0f4423 100%);
+}
+
+.btn-small {
+    padding: 9px 20px;
+    font-size: 0.8rem;
+    margin-top: 12px;
+}
+
+.contract-summary {
+    background-color: var(--paper);
+    border-left: 4px solid var(--red);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+}
+
+.contract-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.contract-terms {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: 1.35rem;
+    color: var(--red);
+    margin: 6px 0;
+}
+
+.contract-detail {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.contract-question {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+
+.contract-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+.contract-actions .btn-secondary {
+    margin-top: 0;
 }
