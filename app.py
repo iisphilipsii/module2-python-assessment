@@ -11,6 +11,7 @@ from flask import Flask, redirect, render_template, request, session, url_for
 
 import data
 import validation
+import ratings
 
 app = Flask(__name__)
 
@@ -61,14 +62,24 @@ def trials():
 
 @app.route("/offers")
 def offers():
-    """Show the profile the player submitted, read back from the session."""
+    """Score the submitted profile and show the contract offers it unlocks."""
     profile = session.get("profile")
     # Landing here without completing the form has nothing to show, so send
     # the visitor back to fill it in.
     if profile is None:
         return redirect(url_for("trials"))
 
-    return render_template("offers.html", profile=profile)
+    rating = ratings.calculate_rating(profile)
+    _, age_note = ratings.age_band(profile["age"])
+
+    return render_template(
+        "offers.html",
+        profile=profile,
+        rating=rating,
+        age_note=age_note,
+        market_value=ratings.estimate_market_value(rating, profile["age"]),
+        offers=ratings.build_offers(profile, rating),
+    )
 
 if __name__ == "__main__":
     # debug=True restarts the server automatically when a file changes.
