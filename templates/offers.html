@@ -5,23 +5,58 @@
 {% block content %}
 <section class="page-head">
     <p class="eyebrow">Step 2 of 3</p>
-    <h1>Profile Received</h1>
+    <h1>Your Assessment</h1>
     <p class="page-lead">
-        Thanks {{ profile.name }} &mdash; your details are with the recruitment team.
+        {{ profile.name }}, the recruitment team has scored your profile and put
+        {{ offers | length }} option{{ 's' if offers | length != 1 }} in front of you.
     </p>
 </section>
 
 <section class="panel">
-    <h2>Your Submitted Profile</h2>
-    <dl class="profile-list">
-        <div><dt>Name</dt><dd>{{ profile.name }}</dd></div>
-        <div><dt>Age</dt><dd>{{ profile.age }}</dd></div>
-        <div><dt>Position</dt><dd>{{ profile.position }}</dd></div>
-        <div><dt>Preferred foot</dt><dd>{{ profile.preferred_foot }}</dd></div>
-        <div><dt>Shirt number</dt><dd>{{ profile.shirt_number }}</dd></div>
-        <div><dt>Training days</dt><dd>{{ profile.training_days }} per week</dd></div>
-        <div><dt>Current club</dt><dd>{{ profile.current_club }}</dd></div>
-    </dl>
-    <a class="btn btn-primary" href="{{ url_for('trials') }}">Edit Profile</a>
+    <h2>Recruitment Report</h2>
+    <div class="report">
+        <div class="rating-badge">
+            <span class="rating-value">{{ rating }}</span>
+            <span class="rating-caption">Overall</span>
+        </div>
+        <div class="report-notes">
+            <p class="report-value">Estimated value: &pound;{{ "{:,}".format(market_value) }}</p>
+            <p class="report-age">{{ age_note }}.</p>
+            <p class="report-detail">
+                {{ profile.position }} &middot; {{ profile.preferred_foot }} footed &middot;
+                {{ profile.training_days }} training days a week &middot;
+                shirt number {{ profile.shirt_number }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>Available Offers</h2>
+    <p class="panel-lead">
+        Offers unlock as your rating rises, so a stronger profile sees more choices here.
+    </p>
+
+    {% for offer in offers %}
+    <article class="offer-card">
+        <div class="offer-head">
+            <h3>{{ offer.title }}</h3>
+            {% if offer.min_rating >= 80 %}
+            <span class="offer-tag tag-elite">Elite</span>
+            {% elif offer.min_rating >= 70 %}
+            <span class="offer-tag tag-senior">Senior</span>
+            {% elif offer.min_rating >= 60 %}
+            <span class="offer-tag tag-development">Development</span>
+            {% else %}
+            <span class="offer-tag tag-open">Open to all</span>
+            {% endif %}
+        </div>
+        <p class="offer-summary">{{ offer.summary }}</p>
+        <p class="offer-detail">{{ offer.detail }}</p>
+        <p class="offer-terms">{{ offer.terms }}</p>
+    </article>
+    {% endfor %}
+
+    <a class="btn btn-secondary" href="{{ url_for('trials') }}">Change My Details</a>
 </section>
 {% endblock %}

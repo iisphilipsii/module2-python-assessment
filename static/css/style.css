@@ -553,3 +553,127 @@ fieldset.field {
 .profile-list dd {
     font-weight: 600;
 }
+
+/* recruitment report */
+
+.report {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.rating-badge {
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+    color: #ffffff;
+    border-radius: var(--radius);
+    padding: 18px 26px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.rating-value {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    display: block;
+}
+
+.rating-caption {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.report-value {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    font-size: 1.5rem;
+    color: var(--red);
+}
+
+.report-age {
+    font-weight: 600;
+}
+
+.report-detail {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* ards */
+
+.offer-card {
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--red);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+}
+
+.offer-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.offer-head h3 {
+    font-size: 1.15rem;
+}
+
+.offer-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.tag-elite {
+    background-color: var(--gold);
+    color: var(--ink);
+}
+
+.tag-senior {
+    background-color: #f8eaec;
+    color: var(--red-dark);
+}
+
+.tag-development {
+    background-color: #eaf5ee;
+    color: #1c6b3a;
+}
+
+.tag-open {
+    background-color: var(--paper);
+    color: var(--muted);
+}
+
+.offer-summary {
+    font-weight: 600;
+}
+
+.offer-detail {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.offer-terms {
+    font-weight: 700;
+    color: var(--red);
+    margin-top: 8px;
+}
+
+.btn-secondary {
+    background-color: var(--ink);
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--ink-soft, #2c333d);
+}
