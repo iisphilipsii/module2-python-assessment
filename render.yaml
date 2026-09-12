@@ -1,0 +1,11 @@
+# Infrastructure as code for Render. Defining the service here means the deployment settings live in version control alongside the application.
+services:
+  - type: web
+    name: lfc-talent-pathway
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
